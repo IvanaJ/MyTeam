@@ -35,4 +35,11 @@ class ProjectsController extends Controller
         $request->persist();
         return redirect('/');
     }
+
+    public function project(Project $project)
+    {
+
+        return view('projects.show-project',compact('project'));
+    }
+
 }

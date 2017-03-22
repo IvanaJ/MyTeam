@@ -6,15 +6,13 @@
     <div class="col-sm-8 blog-main">
 
         <ul>
-        @foreach($projects as $project)
+            @foreach($projects as $project)
 
-              <li><strong>{{ucfirst($project->title) }}</strong></li>
+                <li>{{ucfirst($project->title) }}</li>
 
-
-        @endforeach
+            @endforeach
         </ul>
-
 
     </div>
 
-    @endsection
+@endsection

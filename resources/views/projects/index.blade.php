@@ -8,7 +8,7 @@
         <ul>
         @foreach($projects as $project)
 
-              <li><strong>{{ $project->title }}</strong></li>
+              <li><strong>{{ucfirst($project->title) }}</strong></li>
 
 
         @endforeach

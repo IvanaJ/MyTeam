@@ -12,3 +12,7 @@
 */
 
 Route::get('/', 'ProjectsController@index');
+Route::get('/projects', 'ProjectsController@show');
+
+
+

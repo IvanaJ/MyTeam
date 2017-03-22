@@ -29,9 +29,6 @@
                 @include('errors.errors')
 
             </form>
-
-
-
     </div>
 
 @endsection

@@ -17,8 +17,3 @@ Route::get('/projects', 'ProjectsController@show');
 Route::get('/add-project', 'ProjectsController@create');
 
 Route::post('/projects', 'ProjectsController@store');
-
-
-
-
-

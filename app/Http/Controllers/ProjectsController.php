@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProject;
+use App\Http\Requests\AddProjectFormRequest;
 use Illuminate\Http\Request;
 use App\Project;
 
@@ -10,29 +10,29 @@ class ProjectsController extends Controller
 {
     //
 
-    public  function index(){
-        $projects=Project::latest();
-
-
+    public function index()
+    {
+        $projects = Project::latest();
 
         return view('projects.index', compact('projects'));
     }
 
-    public  function show(){
+    public function show()
+    {
+        $projects = Project::allProjects();
 
-        $projects=Project::allProjects();
 
-
-        return view('projects.show',compact('projects'));
+        return view('projects.show', compact('projects'));
     }
 
-    public  function create(){
-
+    public function create()
+    {
         return view('projects.create');
     }
 
-    public  function store(StoreProject $request){
+    public function store(AddProjectFormRequest $request)
+    {
         $request->persist();
-      return redirect('/');
+        return redirect('/');
     }
 }

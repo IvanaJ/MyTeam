@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProject;
 use Illuminate\Http\Request;
 use App\Project;
 
@@ -23,5 +24,15 @@ class ProjectsController extends Controller
 
 
         return view('projects.show',compact('projects'));
+    }
+
+    public  function create(){
+
+        return view('projects.create');
+    }
+
+    public  function store(StoreProject $request){
+        $request->persist();
+      return redirect('/');
     }
 }

@@ -14,7 +14,7 @@
 Route::get('/', 'ProjectsController@index');
 Route::get('/projects', 'ProjectsController@show');
 
-Route::get('/add-project', 'ProjectsController@create');
+Route::get('/add-project', 'ProjectsController@create')->middleware('auth');
 
 Route::post('/projects', 'ProjectsController@store');
 

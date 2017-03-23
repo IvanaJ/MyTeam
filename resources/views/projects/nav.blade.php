@@ -5,12 +5,12 @@
             <a class="nav-link" href="/projects">Projects</a>
             <a class="nav-link" href="/add-project">Add Project</a>
 
-            <a class="nav-link " style="    left: 55%;" href="/register">Register</a>
-            <a class="nav-link ml-auto" href="/register">Login</a>
-
-
-
-
+            <a class="nav-link" href="/register">Register</a>
+            <a class="nav-link ml-auto" style="left: 25%;" href="/login">Login</a>
+            <a class="nav-link ml-auto" href="/logout">Logout</a>
+            @if(Auth::check())
+                <a class="nav-link ml-auto" href="#">Welcome, {{Auth::user()->name}}</a>
+            @endif
         </nav>
     </div>
 </div>

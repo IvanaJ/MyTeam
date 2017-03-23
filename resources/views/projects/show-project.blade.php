@@ -11,7 +11,7 @@
     <p><strong>Description:</strong> {{$project->description}}</p>
    <p>This projects was made : {{$project->created_at->diffForHumans()}}</p>
     <div class="back">
-        <button type="button" class="btn btn-info "><a href="/projects">Back</a></button>
+        <button type="button" class="btn btn-info "><a style="color:white" href="/projects">Back</a></button>
     </div>
 
 

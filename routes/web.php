@@ -23,3 +23,8 @@ Route::get('/projects/{project}', 'ProjectsController@project');
 Route::get('/register', 'RegistrationsController@create');
 Route::post('/register', 'RegistrationsController@store');
 
+Route::get('/login', 'SessionsController@create');
+
+Route::get('/logout', 'SessionsController@destroy');
+
+Route::post('/login', 'SessionsController@store');

@@ -20,3 +20,6 @@ Route::post('/projects', 'ProjectsController@store');
 
 Route::get('/projects/{project}', 'ProjectsController@project');
 
+Route::get('/register', 'RegistrationsController@create');
+Route::post('/register', 'RegistrationsController@store');
+

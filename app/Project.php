@@ -32,8 +32,8 @@ class Project extends Model
         return 'title';
     }
 
-    public  function user(){
-        $this->belongsTo(User::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }
 

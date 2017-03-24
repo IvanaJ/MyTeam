@@ -9,7 +9,7 @@ class Project extends Model
     //
 
     protected $fillable=[
-        'title','description'
+        'title','user_id','description',
     ];
 
     public static function latest(){
@@ -30,6 +30,10 @@ class Project extends Model
     public function getRouteKeyName()
     {
         return 'title';
+    }
+
+    public  function user(){
+        $this->belongsTo(User::class);
     }
 }
 

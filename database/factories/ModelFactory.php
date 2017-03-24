@@ -12,16 +12,17 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-//$factory->define(App\User::class, function (Faker\Generator $faker) {
-//    static $password;
-//
-//    return [
-//        'name' => $faker->name,
-//        'email' => $faker->unique()->safeEmail,
-//        'password' => $password ?: $password = bcrypt('secret'),
-//        'remember_token' => str_random(10),
-//    ];
-//});
+$factory->define(App\User::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'name' => $faker->name,
+        'last_name'=>$faker->lastName,
+        'email' => $faker->unique()->safeEmail,
+        'password' => $password ?: $password = bcrypt('secret'),
+        'remember_token' => str_random(10),
+    ];
+});
 
 
 $factory->define(App\Project::class, function (Faker\Generator $faker) {
@@ -29,6 +30,7 @@ $factory->define(App\Project::class, function (Faker\Generator $faker) {
 
     return [
         'title' => $faker->word(),
+        'user_id'=>factory(App\User::class)->create()->id,
         'description' => $faker->text(),
 
     ];

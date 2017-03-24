@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Project;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AddProjectFormRequest extends FormRequest
 {
@@ -35,6 +36,7 @@ class AddProjectFormRequest extends FormRequest
     {
         $project=Project::create([
             'title'=>request('title'),
+            'user_id'=>Auth::user()->id,
             'description' => request('description')
         ]);
     }

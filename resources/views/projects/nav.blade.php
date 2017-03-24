@@ -5,6 +5,7 @@
             <a class="nav-link" href="/projects">Projects</a>
             @if(Auth::check())
                 <a class="nav-link" href="/add-project">Add Project</a>
+                <a class="nav-link" href="/my-projects">My Projects</a>
                 <a class="nav-link " href="/logout" style="left: 70%;">Logout</a>
                 <a class="nav-link ml-auto" href="#">Welcome, {{Auth::user()->name}}</a>
             @else

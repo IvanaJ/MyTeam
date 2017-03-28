@@ -33,8 +33,7 @@
                 {{ session()->get('message') }}
             </div>
         @endif
-
-        
+        <div>The number of applications is: {{$number}}</div>
         <div class="back">
             <button type="button" class="btn btn-info "><a style="color:white" href="/my-projects">Back</a></button>
         </div>

@@ -63,4 +63,6 @@ class ProjectApplicationController extends Controller
     {
         Mail::to($user)->send(new rejectApplication);
     }
+
+
 }

@@ -7,6 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\User;
+
 class acceptApplication extends Mailable
 {
     use Queueable, SerializesModels;
@@ -16,9 +17,13 @@ class acceptApplication extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($user, $project, $project_owner)
     {
-        //
+        $this->user = $user;
+        $this->project = $project;
+        $this->project_owner = $project_owner;
+
+
     }
 
     /**
@@ -28,7 +33,6 @@ class acceptApplication extends Mailable
      */
     public function build()
     {
-
-        return $this->markdown('emails.accept',['user']);
+        return $this->markdown('emails.accept', ['user' => $this->user, 'project' => $this->project, 'project_owner' => $this->project_owner]);
     }
 }

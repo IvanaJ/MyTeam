@@ -16,18 +16,23 @@ class rejectApplication extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($user, $project, $project_owner)
     {
-        //
-    }
+        $this->user = $user;
+        $this->project = $project;
+        $this->project_owner = $project_owner;
 
+
+    }
     /**
      * Build the message.
      *
      * @return $this
      */
+
     public function build()
     {
-        return $this->markdown('emails.reject');
+        return $this->markdown('emails.reject', ['user' => $this->user, 'project' => $this->project, 'project_owner' => $this->project_owner]);
     }
+
 }

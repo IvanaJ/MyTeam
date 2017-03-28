@@ -6,13 +6,11 @@ Your application has been accepted.
 @component('mail::panel')
 Details for the project:
 
-- Project Name:
+- Project Name: {{$project}}
 
-{{---{{$user->name}}--}}
+- Project Owner: {{$project_owner}}
 
-{{--- Project Owner:--}}
 
-{{---{{$project->user->name}}--}}
 
 
 @endcomponent

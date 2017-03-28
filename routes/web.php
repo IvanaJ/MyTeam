@@ -27,6 +27,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/my-projects','UserController@index');
     Route::get('/my-projects/{project}','UserController@show');
     Route::get('/apply/{id}', 'ProjectApplicationController@apply');
-    Route::get('/accept/{id}', 'ProjectApplicationController@accept');
-    Route::get('/reject/{id}', 'ProjectApplicationController@reject');
+    Route::get('/accept/{id}/{project}', 'ProjectApplicationController@accept');
+    Route::get('/reject/{id}/{project}', 'ProjectApplicationController@reject');
 });

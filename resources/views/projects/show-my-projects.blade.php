@@ -19,9 +19,9 @@
                 <li class="list-group-item">
                     {{$application->name }}
                     <div>
-                        <button type="button" class="btn btn-success "><a href="/accept/{{$application->id}}">Accept</a>
+                        <button type="button" class="btn btn-success "><a href="/accept/{{$application->id}}/{{$project->id}}">Accept</a>
                         </button>
-                        <button type="button" class="btn btn-danger "><a href="/reject/{{$application->id}}">Reject</a>
+                        <button type="button" class="btn btn-danger "><a href="/reject/{{$application->id}}/{{$project->id}}">Reject</a>
                         </button>
                     </div>
                 </li>

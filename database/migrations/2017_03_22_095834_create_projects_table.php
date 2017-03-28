@@ -22,6 +22,13 @@ class CreateProjectsTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users');
         });
+
+        Schema::create('project_user', function (Blueprint $table) {
+            $table->integer('project_id');
+            $table->integer('user_id');
+
+            $table->primary(['project_id', 'user_id']);
+        });
     }
 
     /**
@@ -32,5 +39,6 @@ class CreateProjectsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('projects');
+        Schema::dropIfExists('project_user');
     }
 }

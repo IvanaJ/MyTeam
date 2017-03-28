@@ -28,7 +28,7 @@ $factory->define(App\Project::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'title' => $faker->text(),
+        'title' => $faker->word(),
         'description' => $faker->text(),
 
     ];

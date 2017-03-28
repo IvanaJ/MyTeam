@@ -10,24 +10,23 @@ use App\Mail\Application;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 
-class EmailController extends Controller
+class ProjectApplicationController extends Controller
 {
-    //
-    public function send($id)
-    {
+    public function apply($id){
         //Logic will go here
         $project = Project::find($id);
         $user = $project->user->email;
+
         $appUser=User::where('id',Auth::user()->id)->first();
 
 
         $project->applications()->attach($appUser->id);
-
-        Mail::to($user)->send(new Application);
-
-
+        $this->send($user);
         return redirect()->back()->with('message', 'Your application has been sent!');
-
-
+    }
+    //
+    public function send($user)
+    {
+        Mail::to($user)->send(new Application);
     }
 }

@@ -14,7 +14,7 @@
 
         @if(Auth::check())
             <div>
-                <button type="button" class="btn btn-info "><a style="color:white" href="/send/{{$project->id}}">Application</a></button>
+                <button type="button" class="btn btn-info "><a style="color:white" href="/apply/{{$project->id}}">Application</a></button>
             </div>
         @else
             <div class="alert alert-info" role="alert"> If u want to applicate for this project, please register or

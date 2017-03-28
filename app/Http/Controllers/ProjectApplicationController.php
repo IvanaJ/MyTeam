@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\acceptApplication;
+use App\Mail\AcceptApplication;
 use App\Project;
+use App\SendEmail;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -11,10 +12,11 @@ use App\Mail\Application;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Mail\rejectApplication;
+use App\Mail\RejectApplication;
 
 class ProjectApplicationController extends Controller
 {
+    use SendEmail;
     public function apply($id)
     {
         //Logic will go here
@@ -34,7 +36,7 @@ class ProjectApplicationController extends Controller
         $project = Project::find($project)->title;
 //        dd($project);
         $user = User::find($id);
-        $this->acceptApplicatorMail($user->email, $project, $project_owner);
+        $this->AcceptApplicatorMail($user->email, $project, $project_owner);
 
         return redirect()->back()->with('message', 'The application has been accepted!');
     }
@@ -47,7 +49,7 @@ class ProjectApplicationController extends Controller
         $project = Project::find($project)->title;
 //        dd($project);
         $user = User::find($id);
-        $this->rejectApplicatorMail($user->email, $project, $project_owner);
+        $this->RejectApplicatorMail($user->email, $project, $project_owner);
 
         DB::table('project_user')->where('user_id', $id)->delete();
 
@@ -55,21 +57,7 @@ class ProjectApplicationController extends Controller
     }
 
 
-    //Emails
-    public function sendMailToProjectOwner($user)
-    {
-        Mail::to($user)->send(new Application);
-    }
 
-    public function acceptApplicatorMail($user, $project, $project_owner)
-    {
-        Mail::to($user)->send(new acceptApplication($user, $project, $project_owner));
-    }
-
-    public function rejectApplicatorMail($user, $project, $project_owner)
-    {
-        Mail::to($user)->send(new rejectApplication($user, $project, $project_owner));
-    }
 
 
 }

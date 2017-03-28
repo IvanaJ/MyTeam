@@ -13,18 +13,16 @@
 
 Route::get('/', 'ProjectsController@index');
 Route::get('/projects', 'ProjectsController@show');
-
-Route::get('/add-project', 'ProjectsController@create');
-
-Route::post('/projects', 'ProjectsController@store');
-
 Route::get('/projects/{project}', 'ProjectsController@project');
-
 Route::get('/register', 'RegistrationsController@create');
 Route::post('/register', 'RegistrationsController@store');
-
-Route::get('/login', 'SessionsController@create');
-
-Route::get('/logout', 'SessionsController@destroy');
-
+Route::get('/login', 'SessionsController@create')->name('login');
 Route::post('/login', 'SessionsController@store');
+Route::group(['middleware' => 'auth'], function () {
+
+    // All my routes that needs a logged in user
+    Route::get('/add-project', 'ProjectsController@create');
+    Route::post('/projects', 'ProjectsController@store');
+    Route::get('/logout', 'SessionsController@destroy');
+    Route::get('/my-projects','UserController@index');
+});

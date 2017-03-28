@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Project;
+use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+
+class UserController extends Controller
+{
+    //
+    public function index(){
+        $user = Auth::user();
+
+        return view('projects.my-projects',compact('user'));
+    }
+}

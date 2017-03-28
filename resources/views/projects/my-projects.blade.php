@@ -10,12 +10,12 @@
         <ul>
             @foreach($user->projects as $project)
 
-                <li class="list-group-item">
-                    <strong>
-                        {{ucfirst($project->title) }}
-                    </strong>
 
-                </li>
+                <li><strong>{{ucfirst($project->title) }}</strong> </li>
+
+                <button type="button" class="btn btn-info "><a style="color:white" href="/my-projects/{{$project->title}}">View details</a></button>
+
+
 
             @endforeach
         </ul>

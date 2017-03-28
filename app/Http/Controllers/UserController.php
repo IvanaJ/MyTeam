@@ -10,9 +10,17 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         $user = Auth::user();
 
-        return view('projects.my-projects',compact('user'));
+        return view('projects.my-projects', compact('user'));
     }
+
+    public function show(Project $project)
+    {
+
+        return view('projects.show-my-projects', compact('project'));
+    }
+
 }

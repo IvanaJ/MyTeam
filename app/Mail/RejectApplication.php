@@ -16,11 +16,11 @@ class RejectApplication extends Mailable
      *
      * @return void
      */
-    public function __construct($user, $project, $project_owner)
+    public function __construct($user, $project, $projectOwner)
     {
         $this->user = $user;
         $this->project = $project;
-        $this->project_owner = $project_owner;
+        $this->projectOwner = $projectOwner;
 
 
     }
@@ -32,7 +32,7 @@ class RejectApplication extends Mailable
 
     public function build()
     {
-        return $this->markdown('emails.reject', ['user' => $this->user, 'project' => $this->project, 'project_owner' => $this->project_owner]);
+        return $this->markdown('emails.reject', ['user' => $this->user, 'project' => $this->project, 'projectOwner' => $this->projectOwner]);
     }
 
 }

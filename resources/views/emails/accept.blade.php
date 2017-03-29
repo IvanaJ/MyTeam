@@ -8,12 +8,12 @@ Details for the project:
 
 - Project Name: {{$project}}
 
-- Project Owner: {{$project_owner}}
+- Project Owner: {{$projectOwner}}
 
 
 
 
-@endcomponent
+@endcomponents
 
 @component('mail::button', ['url' => ''])
 Project Details

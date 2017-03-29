@@ -9,7 +9,7 @@ Details for the project:
 
 - Project Name: {{$project}}
 
-- Project Owner: {{$project_owner}}
+- Project Owner: {{$projectOwner}}
 
 
 @endcomponent

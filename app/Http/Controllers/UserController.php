@@ -19,8 +19,9 @@ class UserController extends Controller
 
     public function show(Project $project)
     {
-
-        return view('projects.show-my-projects', compact('project'));
+        $number=$project->applications->count();
+        return view('projects.show-my-projects', compact('project','number'));
     }
+
 
 }

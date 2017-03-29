@@ -1,7 +1,7 @@
 @component('mail::message')
 Application
 
-This user want to applicate for your project!
+This user wants to applicate for your project!
 
 @component('mail::panel')
 
